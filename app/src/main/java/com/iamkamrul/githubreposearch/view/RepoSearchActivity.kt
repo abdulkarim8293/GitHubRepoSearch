@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.iamkamrul.githubreposearch.GitHubRepoApp
 import com.iamkamrul.githubreposearch.databinding.ActivitySearchRepositoriesBinding
+import com.iamkamrul.githubreposearch.di.deps.applicationDeps
 import com.iamkamrul.githubreposearch.di.viewmodel.AppViewModelFactory
 import com.iamkamrul.githubreposearch.model.RepoSearchResult
 import javax.inject.Inject
@@ -16,10 +17,12 @@ import javax.inject.Inject
 class RepoSearchActivity : AppCompatActivity() {
 
     @Inject lateinit var appViewModelFactory: AppViewModelFactory
+    @Inject @Kamrul lateinit var kamrul:String
+    @Inject @Imtiaz lateinit var imtiaz:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        inject()
         super.onCreate(savedInstanceState)
-        DaggerRepoActivityComponent.factory().create((application as GitHubRepoApp).appComponent()).inject(this)
         val binding = ActivitySearchRepositoriesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -29,6 +32,8 @@ class RepoSearchActivity : AppCompatActivity() {
         binding.list.addItemDecoration(decoration)
 
         binding.bindState(viewModel,viewModel.accept)
+        Toast.makeText(applicationContext, kamrul, Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, imtiaz, Toast.LENGTH_SHORT).show()
     }
 
 
