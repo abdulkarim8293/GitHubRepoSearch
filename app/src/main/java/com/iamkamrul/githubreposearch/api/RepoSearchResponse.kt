@@ -4,6 +4,8 @@ package com.iamkamrul.githubreposearch.api
 import com.google.gson.annotations.SerializedName
 
 
+data class RepoSearchResponse(val items:List<Repo>)
+
 data class Repo(
     @field:SerializedName("id") val id: Long,
     @field:SerializedName("name") val name: String,
