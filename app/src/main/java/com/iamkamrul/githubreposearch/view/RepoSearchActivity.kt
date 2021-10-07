@@ -7,24 +7,28 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
-import com.iamkamrul.githubreposearch.Injection
+import com.iamkamrul.githubreposearch.GitHubRepoApp
 import com.iamkamrul.githubreposearch.databinding.ActivitySearchRepositoriesBinding
+import com.iamkamrul.githubreposearch.di.viewmodel.AppViewModelFactory
 import com.iamkamrul.githubreposearch.model.RepoSearchResult
+import javax.inject.Inject
 
 class RepoSearchActivity : AppCompatActivity() {
+
+    @Inject lateinit var appViewModelFactory: AppViewModelFactory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DaggerRepoActivityComponent.factory().create((application as GitHubRepoApp).appComponent()).inject(this)
         val binding = ActivitySearchRepositoriesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel = ViewModelProvider(this, Injection.provideViewModelFactory(owner = this))
-            .get(RepoSearchViewModel::class.java)
+        val viewModel = ViewModelProvider(this, appViewModelFactory).get(RepoSearchViewModel::class.java)
 
         val decoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         binding.list.addItemDecoration(decoration)
 
         binding.bindState(viewModel,viewModel.accept)
-
     }
 
 

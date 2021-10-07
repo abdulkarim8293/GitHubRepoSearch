@@ -10,8 +10,9 @@ import com.iamkamrul.githubreposearch.model.RepoSearchResult
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class RepoSearchRepository(
+class RepoSearchRepository @Inject constructor(
     private val service: GithubService
 ){
     private val reposList = MutableLiveData<RepoSearchResult>()

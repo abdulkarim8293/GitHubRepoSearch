@@ -3,8 +3,9 @@ package com.iamkamrul.githubreposearch.view
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
+import javax.inject.Inject
 
-class RepoSearchViewModel(
+class RepoSearchViewModel @Inject constructor(
     private val repository: RepoSearchRepository
 ) : ViewModel(){
 
