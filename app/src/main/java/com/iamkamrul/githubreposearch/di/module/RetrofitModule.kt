@@ -1,6 +1,6 @@
 package com.iamkamrul.githubreposearch.di.module
 
-import com.iamkamrul.githubreposearch.api.GithubService
+import com.iamkamrul.githubreposearch.data.GithubService
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

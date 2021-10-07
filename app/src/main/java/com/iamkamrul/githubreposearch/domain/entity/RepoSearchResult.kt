@@ -1,9 +1,6 @@
 
 
-package com.iamkamrul.githubreposearch.model
-
-import com.iamkamrul.githubreposearch.api.Repo
-import java.lang.Exception
+package com.iamkamrul.githubreposearch.domain.entity
 
 sealed class RepoSearchResult {
     data class Loading(val loading: Boolean) : RepoSearchResult()

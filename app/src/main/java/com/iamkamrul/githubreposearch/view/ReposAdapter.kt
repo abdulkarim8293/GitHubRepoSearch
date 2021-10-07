@@ -4,7 +4,7 @@ package com.iamkamrul.githubreposearch.view
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import com.iamkamrul.githubreposearch.api.Repo
+import com.iamkamrul.githubreposearch.domain.entity.Repo
 
 
 class ReposAdapter : ListAdapter<Repo, RepoViewHolder>(REPO_COMPARATOR) {

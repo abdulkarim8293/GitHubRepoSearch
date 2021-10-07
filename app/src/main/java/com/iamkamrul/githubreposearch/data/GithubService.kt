@@ -1,6 +1,7 @@
 
-package com.iamkamrul.githubreposearch.api
+package com.iamkamrul.githubreposearch.data
 
+import com.iamkamrul.githubreposearch.domain.entity.RepoSearchResponseEntity
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import okhttp3.logging.HttpLoggingInterceptor.Level
@@ -18,7 +19,7 @@ interface GithubService {
         @Query("q") query: String,
         @Query("page") page: Int,
         @Query("per_page") itemsPerPage: Int
-    ): Call<RepoSearchResponse>
+    ): Call<RepoSearchResponseEntity>
 
     companion object {
         private const val BASE_URL = "https://api.github.com/"

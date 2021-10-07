@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iamkamrul.githubreposearch.R
-import com.iamkamrul.githubreposearch.api.Repo
+import com.iamkamrul.githubreposearch.domain.entity.Repo
 
 
 class RepoViewHolder(view: View) : RecyclerView.ViewHolder(view) {

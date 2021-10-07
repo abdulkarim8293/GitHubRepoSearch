@@ -3,10 +3,12 @@ package com.iamkamrul.githubreposearch.view
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
+import com.iamkamrul.githubreposearch.domain.repo.RepoSearchRepository
+import com.iamkamrul.githubreposearch.domain.usecase.RepoSearchApiUseCase
 import javax.inject.Inject
 
 class RepoSearchViewModel @Inject constructor(
-    private val repository: RepoSearchRepository
+    private val repoSearchApiUseCase: RepoSearchApiUseCase
 ) : ViewModel(){
 
     val accept: (UiAction) -> Unit
@@ -22,7 +24,7 @@ class RepoSearchViewModel @Inject constructor(
     }
 
     val reposSearchApiResponse = searchTextQuery.switchMap {searchText->
-        repository.fetchSearchRepoList(searchText)
+        repoSearchApiUseCase.execute(RepoSearchApiUseCase.Params(searchText))
     }
 
 

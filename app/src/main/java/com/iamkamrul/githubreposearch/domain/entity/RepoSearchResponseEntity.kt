@@ -1,10 +1,10 @@
 
-package com.iamkamrul.githubreposearch.api
+package com.iamkamrul.githubreposearch.domain.entity
 
 import com.google.gson.annotations.SerializedName
 
 
-data class RepoSearchResponse(val items:List<Repo>)
+data class RepoSearchResponseEntity(val items:List<Repo>)
 
 data class Repo(
     @field:SerializedName("id") val id: Long,
